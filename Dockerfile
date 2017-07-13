@@ -8,6 +8,7 @@ FROM hseeberger/scala-sbt:8u131-jdk_2.12.2_0.13.15
 
 ENV NODE_VERSION 6.11.1
 ENV YARN_VERSION 0.27.5
+ENV DOCKER_VERSION 17.03.0-ce
 ENV NPM_CONFIG_LOGLEVEL info
 
 RUN groupadd --gid 1000 node \
@@ -54,3 +55,8 @@ RUN set -ex \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+  
+RUN set -x \
+  && curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz \
+  && tar -xz -C /tmp -f /tmp/docker-$DOCKER_VERSION.tgz \
+  && mv /tmp/docker/* /usr/bin
