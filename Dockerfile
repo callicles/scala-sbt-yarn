@@ -4,11 +4,11 @@
 # https://github.com/callicles/scala-sbt-yarn
 #
 
-FROM hseeberger/scala-sbt:8u131-jdk_2.12.2_0.13.15
+FROM hseeberger/scala-sbt:8u151-2.12.4-1.1.0
 
-ENV NODE_VERSION 6.11.1
-ENV YARN_VERSION 0.27.5
-ENV DOCKER_VERSION 17.03.0-ce
+ENV NODE_VERSION 8.4.0
+ENV YARN_VERSION 1.3.2
+ENV DOCKER_VERSION 17.12.0-ce
 ENV NPM_CONFIG_LOGLEVEL info
 
 RUN groupadd --gid 1000 node \
